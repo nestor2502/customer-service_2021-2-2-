@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dws.customerservice3.dto.Customer;
 import com.dws.customerservice3.dto.Region;
+//import com.dws.customerservice3.dto.Region;
 import com.dws.customerservice3.dto.RespuestaApi;
 
 @Repository
@@ -36,7 +37,8 @@ public class CustomerRepository {
 				region.setId(rs.getInt(7));
 				region.setRegion(rs.getString(8));
 				
-				customer.setRegion(region);
+				//customer.setRegion(region);
+				customer.setIdRegion(rs.getInt(7));
 				return customer;
 			}
 			
@@ -57,11 +59,13 @@ public class CustomerRepository {
 				customer.setRfc(rs.getString(4));
 				customer.setCorreo(rs.getString(5));
 				
+				
 				Region region = new Region();
 				region.setId(rs.getInt(7));
 				region.setRegion(rs.getString(8));
 				
-				customer.setRegion(region);
+				//customer.setRegion(region);
+				customer.setIdRegion(rs.getInt(7));
 				return customer;
 			}
 			
@@ -75,7 +79,8 @@ public class CustomerRepository {
 				+ "'"+ customer.getApellidos()+"',"
 				+ "'"+ customer.getRfc()+"',"
 				+ "'"+ customer.getCorreo()+"',"
-				+ "'"+ customer.getRegion().getId()+"'"
+				+ "'"+ customer.getIdRegion() +"'"
+				//+ "'"+ customer.getRegion() +"'"
 				+ ");");
 		RespuestaApi msg = new RespuestaApi();
 		msg.setMessage("El cliente ha sido registrado");
@@ -88,7 +93,7 @@ public class CustomerRepository {
 				+ "apellidos = '"+ customer.getApellidos()+"',"
 				+ "rfc = '"+ customer.getRfc()+"',"
 				+ "correo = '"+ customer.getCorreo()+"',"
-				+ "id_region = '"+ customer.getRegion().getId()+"'"
+				+ "id_region = '"+ customer.getIdRegion()+"'"
 				+ " WHERE id = "+ id +";");
 		RespuestaApi msg = new RespuestaApi();
 		msg.setMessage("El cliente ha sido actualizado");

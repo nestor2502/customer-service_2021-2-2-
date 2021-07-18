@@ -6,8 +6,17 @@ public class Customer {
 	private String apellidos;
 	private String rfc;
 	private String correo;
-	private Region region;
+	//private Region region;
+	private int id_region;
 	
+	public int getIdRegion() {
+		return id_region;
+	}
+
+	public void setIdRegion(int id_region) {
+		this.id_region = id_region;
+	}
+
 	public Customer(){
 		super();
 	}
@@ -51,22 +60,23 @@ public class Customer {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
+	
+	/*
 	public Region getRegion() {
 		return region;
 	}
 
 	public void setRegion(Region region) {
 		this.region = region;
-	}
-
-	public Customer(int id, String nombre, String apellidos, String rfc, String correo, Region region) {
+	}*/
+	
+	public Customer(int id, String nombre, String apellidos, String rfc, String correo, int region) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.rfc = rfc;
 		this.correo = correo;
-		this.region = region;
+		this.id_region = region;
 	}
 }
